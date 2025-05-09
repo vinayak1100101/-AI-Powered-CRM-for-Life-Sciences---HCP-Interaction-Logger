@@ -1,0 +1,196 @@
+/* frontend/src/components/LogInteractionScreen.css */
+
+/* --- Main Container --- */
+.log-interaction-container {
+    max-width: 1100px; /* Wider for two columns */
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Two-Column Layout --- */
+.log-screen-layout {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+    gap: 2rem; /* Space between columns */
+}
+
+.log-screen-layout .column {
+    flex: 1; /* Default to equal width, basis will adjust */
+    min-width: 300px; /* Minimum width before wrapping */
+}
+
+/* Define column widths (Form on Left = ~60%, AI on Right = ~35%) */
+.log-screen-layout .log-interaction-details.column {
+     flex-grow: 1;
+     flex-basis: 60%; /* Form takes ~60% width */
+     order: 1; /* Ensure form is first (left) */
+}
+
+.log-screen-layout .ai-input-section.column {
+    flex-grow: 1;
+    flex-basis: 35%; /* AI section takes ~35% width */
+    order: 2; /* Ensure AI section is second (right) */
+}
+
+
+/* --- Main Form Styling (Left Column) --- */
+.log-interaction-details h2 {
+     text-align: center;
+     margin-top: 0;
+     margin-bottom: 1.5rem;
+     color: #333;
+}
+.log-interaction-form .form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+.log-interaction-form .form-group {
+    flex: 1;
+    min-width: 180px;
+    display: flex;
+    flex-direction: column;
+}
+.log-interaction-form .form-group.full-width {
+   flex-basis: 100%;
+}
+.log-interaction-form label {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #555;
+}
+label[for="summary"]::after { /* Style for the AI summary label */
+    content: " (AI Populated)";
+    font-size: 0.8em;
+    color: #666;
+    margin-left: 5px;
+}
+.log-interaction-form input[type="text"],
+.log-interaction-form input[type="date"],
+.log-interaction-form input[type="time"],
+.log-interaction-form select,
+.log-interaction-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+    background-color: white;
+    box-sizing: border-box;
+}
+.log-interaction-form input,
+.log-interaction-form select {
+     height: calc(1.5em + 1.5rem + 2px);
+}
+.log-interaction-form textarea {
+    height: auto;
+    min-height: 60px;
+    resize: vertical;
+}
+
+/* --- Sentiment Radio Button Styling --- */
+.sentiment-radio-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+}
+.sentiment-radio-label {
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    font-size: 0.9rem;
+    background-color: #f8f9fa;
+    color: #495057;
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+}
+.sentiment-radio-label input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.sentiment-radio-label:not(.selected):hover {
+    background-color: #e9ecef;
+    border-color: #adb5bd;
+}
+.sentiment-radio-label.selected { color: white; border-width: 1px; }
+.sentiment-radio-label.sentiment-positive.selected { background-color: #28a745; border-color: #1e7e34; }
+.sentiment-radio-label.sentiment-neutral.selected { background-color: #007bff; border-color: #0056b3; }
+.sentiment-radio-label.sentiment-negative.selected { background-color: #dc3545; border-color: #bd2130; }
+.sentiment-radio-label.sentiment-unknown.selected { background-color: #6c757d; border-color: #545b62; }
+
+/* --- Form Actions & Status Messages --- */
+.log-interaction-form .form-actions {
+    margin-top: 1.5rem;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+    min-height: 40px;
+}
+.log-interaction-form button[type="submit"] {
+    padding: 0.8rem 1.5rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    order: 2;
+}
+.log-interaction-form button[type="submit"]:hover { background-color: #0056b3; }
+.log-interaction-form button[type="submit"]:disabled { background-color: #ccc; cursor: not-allowed; }
+.success-message, .error-message {
+    margin: 0; padding: 0.5rem 0; font-size: 0.9em; flex-grow: 1; text-align: right; order: 1;
+}
+.success-message { color: green; }
+.error-message { color: red; }
+
+/* --- AI Input Section Styling (Right Column) --- */
+.ai-input-section h3 { margin-top: 0; color: #0056b3; margin-bottom: 0.5rem; }
+.ai-input-section p { margin-bottom: 1rem; font-size: 0.9rem; color: #555; line-height: 1.5; }
+.ai-input-section textarea {
+    width: 100%; padding: 0.75rem; border: 1px solid #ccc; border-radius: 4px;
+    font-size: 1rem; font-family: inherit; resize: vertical; margin-bottom: 1rem;
+    min-height: 200px; /* Increased height */ box-sizing: border-box;
+}
+.ai-actions { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.ai-button {
+    padding: 0.7rem 1.2rem; background-color: #28a745; color: white; border: none;
+    border-radius: 4px; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: background-color 0.2s ease;
+}
+.ai-button:hover { background-color: #218838; }
+.ai-button:disabled { background-color: #ccc; cursor: not-allowed; }
+.ai-error { margin-top: 0; color: red; font-size: 0.9em; flex-grow: 1; text-align: left; }
+
+/* --- Responsiveness --- */
+@media (max-width: 850px) {
+    .log-screen-layout { flex-direction: column; gap: 1rem; }
+    .log-screen-layout .log-interaction-details.column,
+    .log-screen-layout .ai-input-section.column { flex-basis: 100%; order: 0; }
+    .log-screen-layout .ai-input-section.column { margin-top: 1rem; } /* Add space above AI section when stacked */
+    .log-interaction-details h2 { text-align: left; }
+}
+@media (max-width: 480px) {
+    .log-interaction-container { padding: 1rem; }
+    .log-interaction-form .form-row { gap: 0.75rem; }
+    .log-interaction-form .form-group { min-width: 100%; }
+    .sentiment-radio-group { gap: 8px; }
+    .sentiment-radio-label { padding: 6px 12px; font-size: 0.85rem; }
+    .log-interaction-form .form-actions { flex-direction: column; align-items: flex-end; gap: 0.5rem; }
+    .success-message, .error-message { text-align: right; width: 100%; padding-bottom: 0.5rem; }
+}

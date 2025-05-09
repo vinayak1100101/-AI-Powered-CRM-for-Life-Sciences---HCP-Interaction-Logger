@@ -1,0 +1,72 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+/* frontend/src/App.css */
+
+
+.app-header {
+  background-color: #ffffff;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  text-align: center;
+  margin-bottom: 1rem; /* Space below header */
+}
+
+.app-header h1 {
+    margin: 0;
+    color: #0056b3;
+    font-size: 1.8rem;
+}
+
+.app-content {
+  /* Main content area */
+  padding: 0 1rem; /* Add horizontal padding */
+}
+
+.content-separator {
+    max-width: 1100px; /* Match container width */
+    margin: 3rem auto 2rem auto;
+    border: none;
+    border-top: 1px solid #eee;
+}
+
+/* Add other App-level styles if needed */
