@@ -89,7 +89,7 @@ const LogInteractionScreen = () => {
         event.preventDefault();
         dispatch(resetAddStatus());
 
-        if (!hcpName || !interactionDate || !interactionTime) {
+        if (!hcpName ) {
             alert('Please fill in HCP Name, Date, and Time.');
             return;
         }
