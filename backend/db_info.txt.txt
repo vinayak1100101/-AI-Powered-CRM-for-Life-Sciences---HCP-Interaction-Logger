@@ -1,7 +1,7 @@
-$env:GROQ_API_KEY = "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"
+$env:GROQ_API_KEY = ""
 
-$env:DB_HOST = "127.0.0.1"      # The host for your MySQL database
-$env:DB_USER = "root"           # Your MySQL username
-$env:DB_PASSWORD = "1234"       # Your MySQL password
-$env:DB_PORT = "3306"           # MySQL port (usually 3306)
+$env:DB_HOST = ""      # The host for your MySQL database
+$env:DB_USER = ""           # Your MySQL username
+$env:DB_PASSWORD = ""       # Your MySQL password
+$env:DB_PORT = ""           # MySQL port (usually 3306)
 $env:DB_NAME = "ai_crm_db"      # The database name (ai_crm_db)
