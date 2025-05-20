@@ -87,7 +87,7 @@ ai-crm-hcp/
 **1. Clone the Repository (Example):**
 
 ```bash
-git clone <your-repository-url>
+git clone https://github.com/vinayak1100101/-AI-Powered-CRM-for-Life-Sciences---HCP-Interaction-Logger
 cd ai-crm-hcp
 
 2. Backend Setup:
@@ -99,10 +99,7 @@ cd backend
 Create and activate a Python virtual environment:
 
 python -m venv venv
-# On Windows:
 .\venv\Scripts\activate
-# On macOS/Linux:
-source venv/bin/activate
 
 Install Python dependencies:
 
